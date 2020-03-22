@@ -25,11 +25,11 @@ var app = new Vue({
     },
     methods: {
         getCountryData: function (country) {
+            this.countryInfo = null;
             this.loading = true;
             axios.get(urlBase.replace("{{country}}", country))
                 .then(
                     response => {
-                        this.countryInfo = null;
                         this.countryInfo = this.mapResponse(response.data);
                         this.infoKeys = Object.keys(this.countryInfo);
                         this.loading = false;
