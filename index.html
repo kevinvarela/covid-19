@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <meta property="og:title" content="Covid-19" />
+    <meta property="og:description" content="Official cases data" />
+    <meta property="og:type" content="health" />
+    <meta property="og:url" content="https://kevinvarela.github.io/covid-19" />
+    <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon//apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon//favicon-16x16.png">
+    <link rel="manifest" href="favicon//site.webmanifest">
+
+    <title>Covid-19 Official Data </title>
+
+</head>
+
+<body>
+    <nav style="margin-bottom: 20px">
+        <div class="nav-wrapper black center-align" style="font-size: 35px;">
+            <a>COVID-19 🦠</a>
+        </div>
+    </nav>
+
+    <div id="app">
+        <div class="container center-align">
+
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">search</i>
+                            <input type="text" id="autocomplete-input" class="autocomplete">
+                            <label for="autocomplete-input">Search country...</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col s12" v-for="info in infoKeys">
+                    <div class="collection">
+                        <a class="collection-item"><span
+                                class="badge">{{countryInfo[info]}}</span>{{info | upper | separateKey}}</a>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div v-if="loading" class="preloader-wrapper active center-align">
+                    <div class="spinner-layer spinner-blue-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script src="app.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F6K56X8M67"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-F6K56X8M67');
+    </script>
+</body>
+
+</html>
