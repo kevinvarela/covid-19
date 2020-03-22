@@ -49,14 +49,13 @@
 
                 <div class="col s12" v-for="info in infoKeys">
                     <div class="collection">
-                        <a class="collection-item"><span
-                                class="badge">{{countryInfo[info]}}</span>{{info | upper | separateKey}}</a>
+                        <a class="collection-item" style="font-weight: bold;"><span class="badge" style="font-weight: bold;">{{countryInfo[info]}}</span>{{info | upper | separateKey}}</a>
                     </div>
                 </div>
 
-
             </div>
 
+            <p>*The data of the day is updated at night, they are not updated live.</p>
             <div class="row">
                 <div v-if="loading" class="preloader-wrapper active center-align">
                     <div class="spinner-layer spinner-blue-only">
@@ -93,7 +92,8 @@
         <div class="footer-copyright">
             <div class="container">
                 🄯 2020 GNU GPL - Kevin Varela
-                <a class="grey-text text-lighten-4 right" href="https://github.com/kevinvarela/covid-19"><i class="material-icons prefix">code</i></a>
+                <a class="grey-text text-lighten-4 right" href="https://github.com/kevinvarela/covid-19"><i
+                        class="material-icons prefix">code</i></a>
             </div>
         </div>
     </footer>
