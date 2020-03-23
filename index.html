@@ -17,13 +17,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon//apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon//favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon//favicon-16x16.png">
-    <link rel="manifest" href="favicon//site.webmanifest">
 
     <title>Covid-19 Official Data </title>
 
 </head>
 
 <body>
+
     <nav style="margin-bottom: 20px">
         <div class="nav-wrapper black center-align" style="font-size: 35px;">
             <a>COVID-19 🦠</a>
@@ -34,12 +34,20 @@
         <div class="container center-align" style="margin-bottom: 40px;">
 
             <div class="row">
-                <div class="col s12">
+                <div class="input-field col s3">
+                    <select id="selectLanguage" class="icons" @change="changeLanguage">
+                        <option value="es" data-icon="images/es.png">ES</option>
+                        <option value="en" data-icon="images/en.png">EN</option>
+                    </select>
+                    <label>{{translate("language")}}</label>
+                </div>
+                <div class="col s9">
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">search</i>
-                            <input type="text" id="autocomplete-input" class="autocomplete">
-                            <label for="autocomplete-input">Search country...</label>
+                            <input type="text" id="autocomplete-input" class="autocomplete"
+                                onfocus="this.setSelectionRange(0, this.value.length)">
+                            <label for="autocomplete-input">{{translate("search")}}</label>
                         </div>
                     </div>
                 </div>
@@ -49,7 +57,8 @@
 
                 <div class="col s12" v-for="info in infoKeys">
                     <div class="collection">
-                        <a class="collection-item" style="font-weight: bold;"><span class="badge" style="font-weight: bold;">{{countryInfo[info]}}</span>{{info | upper | separateKey}}</a>
+                        <a class="collection-item" style="font-weight: bold;"><span class="badge"
+                                style="font-weight: bold;">{{countryInfo[info]}}</span>{{translate(info) | upper}}</a>
                     </div>
                 </div>
 
@@ -70,12 +79,11 @@
                     </div>
                 </div>
             </div>
-
-            <p>*The data of the day is updated at night, they are not updated live.</p>
-
         </div>
+        <p class="center-align">{{translate("disclaimer")}}</p>
     </div>
 
+    <script src="i18n.js"></script>
     <script src="app.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -84,7 +92,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-F6K56X8M67');
     </script>
 
