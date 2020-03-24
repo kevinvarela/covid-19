@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
 
     <meta property="og:title" content="Covid-19" />
     <meta property="og:description" content="Official case data covid-19" />
@@ -19,7 +20,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon//favicon-16x16.png">
 
     <title>Covid-19 Official Data </title>
-
 </head>
 
 <body>
@@ -31,37 +31,35 @@
     </nav>
 
     <div id="app">
-        <div class="container center-align" style="margin-bottom: 40px;">
+        <div class="container center-align" style="margin-bottom: 60px;">
 
-            <div class="row">
-                <div class="input-field col s3">
-                    <select id="selectLanguage" class="icons" @change="changeLanguage">
-                        <option value="es" data-icon="images/es.png">ES</option>
-                        <option value="en" data-icon="images/en.png">EN</option>
-                    </select>
-                    <label>{{translate("language")}}</label>
+            <div class="row valign-wrapper">
+                <div class="col s2">
+                    <img class="img-lang" :src="'images/'+ language +'.png'" alt="">
                 </div>
-                <div class="col s9">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">search</i>
-                            <input type="text" id="autocomplete-input" class="autocomplete"
-                                onfocus="this.setSelectionRange(0, this.value.length)">
-                            <label for="autocomplete-input">{{translate("search")}}</label>
-                        </div>
+                <div class="col s3">
+                    <select v-model="selectLanguage">
+                        <option value="es">ES</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+                <div class="col s7">
+                    <div class="input-field">
+                        <i class="material-icons prefix">search</i>
+                        <input type="text" id="autocomplete-input" class="autocomplete"
+                            onfocus="this.setSelectionRange(0, this.value.length)">
+                        <label for="autocomplete-input">{{translate("search")}}</label>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-
                 <div class="col s12" v-for="info in infoKeys">
                     <div class="collection">
                         <a class="collection-item" style="font-weight: bold;"><span class="badge"
                                 style="font-weight: bold;">{{countryInfo[info]}}</span>{{translate(info) | upper}}</a>
                     </div>
                 </div>
-
             </div>
 
             <div class="row">
@@ -79,8 +77,9 @@
                     </div>
                 </div>
             </div>
+
+            <p class="center-align">{{translate("disclaimer")}}</p>
         </div>
-        <p class="center-align">{{translate("disclaimer")}}</p>
     </div>
 
     <script src="i18n.js"></script>

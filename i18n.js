@@ -705,7 +705,7 @@ const countriesTranslates = [
         "key": "Tanzania"
     },
     {
-        "es": "Islas Vírgenes EEUU",
+        "es": "Islas Virgenes EEUU",
         "en": "U.S. Virgin Islands",
         "key": "U.S. Virgin Islands"
     },
@@ -955,7 +955,7 @@ const i18n = {
         "deaths":"muertes",
         "recovered":"recuperados",
         "critical":"criticos",
-        "disclaimer":"**La información se actualiza, una vez al día, por los diferentes países."
+        "disclaimer":"**La información es actualizada, una vez al día, por los diferentes países."
     },
     "en": {
         "language":"language",
