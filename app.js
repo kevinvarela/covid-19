@@ -3,6 +3,7 @@ var urlBase = "https://corona.lmao.ninja/countries/{{country}}";
 var globalGetCountry;
 var translatedCountries;
 var globalLanguage;
+var autocomplete;
 
 function getCountryKeyByCountryName(country) {
     return countriesTranslates.filter(c => c[globalLanguage] == country)[0].key
@@ -22,7 +23,7 @@ function initAutocomplete() {
         }
     };
     var elems = document.querySelectorAll('.autocomplete');
-    M.Autocomplete.init(elems, option);
+    autocomplete = M.Autocomplete.init(elems, option);
 }
 
 var app = new Vue({
@@ -77,7 +78,7 @@ var app = new Vue({
             set: function (newLanguage) {
                 this.language = newLanguage;
                 globalLanguage = this.language;
-                initAutocomplete();
+                autocomplete[0].updateData(this.translateCountries())
                 // localStorage.setItem('language', lang);
             }
         }
