@@ -50,9 +50,9 @@ var app = new Vue({
             return {
                 cases: data.cases,
                 actives: data.active,
-                //today_cases: data.todayCases,
+                today_cases: data.todayCases,
                 deaths: data.deaths,
-                //today_deaths: data.todayDeaths,
+                today_deaths: data.todayDeaths,
                 recovered: data.recovered,
                 critical: data.critical
             }
