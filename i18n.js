@@ -954,8 +954,8 @@ const i18n = {
         "actives":"activos",
         "deaths":"muertes",
         "recovered":"recuperados",
-        "today_cases":"casos ultimas 24hs",
-        "today_deaths":"muertes ultimas 24hs",
+        "today_cases":"ultimos casos",
+        "today_deaths":"ultimas muertes",
         "critical":"criticos",
         "disclaimer":"**La información es actualizada, una vez al día, por los diferentes países."
     },
@@ -966,8 +966,8 @@ const i18n = {
         "actives":"actives",
         "deaths":"deaths",
         "recovered":"recovered",
-        "today_cases":"cases last 24 hours",
-        "today_deaths":"deaths last 24 hours",
+        "today_cases":"last cases",
+        "today_deaths":"last deaths",
         "critical":"critical",
         "disclaimer":"**The information is updated, once a day, by the different countries."
     }
