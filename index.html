@@ -7,9 +7,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
 
     <meta property="og:title" content="Covid-19" />
-    <meta property="og:description" content="Official cases data" />
+    <meta property="og:description" content="Official case data covid-19" />
     <meta property="og:type" content="health" />
     <meta property="og:url" content="https://kevinvarela.github.io/covid-19" />
     <meta property="og:image" content="https://kevinvarela.github.io/covid-19/favicon/covid-og.png" />
@@ -17,13 +18,12 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon//apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon//favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon//favicon-16x16.png">
-    <link rel="manifest" href="favicon//site.webmanifest">
 
     <title>Covid-19 Official Data </title>
-
 </head>
 
 <body>
+
     <nav style="margin-bottom: 20px">
         <div class="nav-wrapper black center-align" style="font-size: 35px;">
             <a>COVID-19 🦠</a>
@@ -31,30 +31,35 @@
     </nav>
 
     <div id="app">
-        <div class="container center-align" style="margin-bottom: 40px;">
+        <div class="container center-align" style="margin-bottom: 60px;">
 
-            <div class="row">
-                <div class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">search</i>
-                            <input type="text" id="autocomplete-input" class="autocomplete">
-                            <label for="autocomplete-input">Search country...</label>
-                        </div>
+            <div class="row valign-wrapper">
+                <div class="col s2">
+                    <img class="img-lang" :src="'images/'+ language +'.png'" alt="">
+                </div>
+                <div class="col s3">
+                    <select v-model="selectLanguage">
+                        <option value="es">ES</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+                <div class="col s7">
+                    <div class="input-field">
+                        <i class="material-icons prefix">search</i>
+                        <input type="text" id="autocomplete-input" class="autocomplete"
+                            onfocus="this.setSelectionRange(0, this.value.length)">
+                        <label for="autocomplete-input">{{translate("search")}}</label>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-
                 <div class="col s12" v-for="info in infoKeys">
                     <div class="collection">
-                        <a class="collection-item"><span
-                                class="badge">{{countryInfo[info]}}</span>{{info | upper | separateKey}}</a>
+                        <a class="collection-item" style="font-weight: bold;"><span class="badge"
+                                style="font-weight: bold;">{{countryInfo[info]}}</span>{{translate(info) | upper}}</a>
                     </div>
                 </div>
-
-
             </div>
 
             <div class="row">
@@ -73,27 +78,36 @@
                 </div>
             </div>
 
-
+            <p class="center-align">{{translate("disclaimer")}}</p>
         </div>
     </div>
 
+    <script src="i18n.js"></script>
     <script src="app.js"></script>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F6K56X8M67"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-F6K56X8M67');
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161562015-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-161562015-1');
+    </script>
+
 
     <footer class="page-footer" style="position: fixed; right: 0; left: 0; bottom: 0; padding-top: 0 !important;">
         <div class="footer-copyright">
             <div class="container">
                 🄯 2020 GNU GPL - Kevin Varela
-                <a class="grey-text text-lighten-4 right" href="https://github.com/kevinvarela/covid-19"><i class="material-icons prefix">code</i></a>
+                <a class="grey-text text-lighten-4 right" href="https://github.com/kevinvarela/covid-19"><i
+                        class="material-icons prefix">code</i></a>
             </div>
         </div>
     </footer>
