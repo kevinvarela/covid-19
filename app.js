@@ -32,7 +32,10 @@ var app = new Vue({
         loading: false,
         countryInfo: {},
         infoKeys: [],
-        language: "es"
+        language: "es",
+        top: true,
+        isMobileOrTablet: window.innerWidth <= 768,
+        firstSearch: true
     },
     methods: {
         getCountryData: function (country) {
@@ -44,6 +47,7 @@ var app = new Vue({
                         this.countryInfo = this.mapResponse(response.data);
                         this.infoKeys = Object.keys(this.countryInfo);
                         this.loading = false;
+                        this.firstSearch = false;
                     })
         },
         mapResponse: function (data) {
@@ -54,7 +58,11 @@ var app = new Vue({
                 deaths: data.deaths,
                 today_deaths: data.todayDeaths,
                 recovered: data.recovered,
-                critical: data.critical
+                critical: data.critical,
+                casesPerMillion: data.casesPerOneMillion,
+                deathsPerMillion: data.deathsPerOneMillion,
+                tests: data.tests,
+                testsPerOneMillion: data.testsPerOneMillion
             }
         },
         translate: function (key) {
@@ -68,6 +76,15 @@ var app = new Vue({
         getLanguage: function () {
             // localStorage.getItem('language') != undefined ? localStorage.getItem('language') : defaultLanguage;
             return this.language
+        },
+        scroll: function () {
+            if(this.top){
+                window.scrollTo(0,document.body.scrollHeight);
+                this.top = false;
+            }else{
+                window.scrollTo(0,0);
+                this.top = true;
+            }
         }
     },
     computed: {

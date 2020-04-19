@@ -957,7 +957,11 @@ const i18n = {
         "today_cases":"ultimos casos",
         "today_deaths":"ultimas muertes",
         "critical":"criticos",
-        "disclaimer":"**La información es actualizada, una vez al día, por los diferentes países."
+        "disclaimer":"**La información es actualizada, una vez al día, por los diferentes países.",
+        "casesPerMillion": "casos por millon",
+        "deathsPerMillion": "muertes por millon",
+        "tests": "tests",
+        "testsPerOneMillion": "tests por millon"
     },
     "en": {
         "language":"language",
@@ -969,6 +973,10 @@ const i18n = {
         "today_cases":"last cases",
         "today_deaths":"last deaths",
         "critical":"critical",
-        "disclaimer":"**The information is updated, once a day, by the different countries."
+        "disclaimer":"**The information is updated, once a day, by the different countries.",
+        "casesPerMillion": "cases per million",
+        "deathsPerMillion": "deaths per million",
+        "tests": "tests",
+        "testsPerOneMillion": "tests per one million"
     }
 }

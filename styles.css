@@ -5,3 +5,9 @@ select {
 .img-lang {
     width: 40px;
 }
+
+.fixed-action-btn {
+    left: 15px !important;
+    bottom: 65px !important;
+    right: unset !important;
+}
